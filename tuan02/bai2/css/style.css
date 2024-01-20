@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0px
+}
+
+.wrapper {
+    width: 900px;
+    height: 755px;
+    margin: 0px auto;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.header {
+    width: 100%;
+    height: 100px;
+}
+
+.header .logo {
+    width: 100px;
+    height: 120px;
+    margin-top: -100px;
+    margin-left: 10px;
+}
+
+.header .title {
+    width: 800px;
+    height: 100px;
+    margin-left: 100px;
+    margin-top: -100px;
+}
+.header .title h1 {
+    font-size: 30px;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-top: -1px;
+}
+.header .title h3 {
+    font-size: 15px;
+    color: white;
+    margin-top: -5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.nav {
+    width: 100%;
+    height: 30px;
+    background-color: #808080d6;
+    display: flex;
+}
+
+.nav .menu {
+    width: 90%;
+    height: 30px;  
+    padding-left: 25px;
+}
+
+.nav ul {
+    list-style-type: none;
+}
+ul li {
+    float: left;
+    line-height: 30px;
+}
+ul li a {
+    text-decoration: none;
+    color: white;
+}
+ul li:hover> a{
+    color: black;
+}
+ul li[class="classes"]{
+    margin-left: 40px;
+}
+ul li[class="catering"]{
+    margin-left: 40px;
+}
+ul li[class="about"]{
+    margin-left: 40px;
+}
+ul li[class="contact"]{
+    margin-left: 40px;
+}
+
+.section {
+    width: 65%;
+    height: 595px;
+    background-color: white;
+    float: left;
+    
+}
+.section .article1 {
+    width: 600px;
+    height: 250px;
+    background-color: white;
+    margin-top: 15px;
+}
+.section .article1 .image1 {
+    width: 100%;
+    height: 150px;
+    background-color: white;
+    float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.section .article1 .image1 p {
+    font-size: 15px;
+    color: brown;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.section .article1 .text1 {
+    width: 271px;
+    height: 100%px;
+    background-color: white;
+    float: right;
+    margin-top: -130px;
+    margin-right: 14px;
+}
+.section .article1 .text1 h3 {
+    font-size: 20px;
+    color: brown;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.section .article2 {
+    width: 600px;
+    height: 250px;
+    background-color: white;
+    margin-top: 50px;
+}
+.section .article2 .image2 {
+    width: 100%;
+    height: 150px;
+    background-color: white;
+    float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.section .article2 .image2 p {
+    font-size: 15px;
+    color: brown;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.section .article2 .text2 {
+    width: 288px;
+    height: 100%px;
+    background-color: white;
+    float: right;
+    margin-top: -130px;
+    margin-right: -4px;
+}
+.section .article2 .text2 h3 {
+    font-size: 20px;
+    color: brown;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.aside {
+    width: 35%;
+    height: 595px;
+    background-color: white;
+    float: right;
+}
+.aside .aside1 {
+    width: 200px;
+    height: 250px;
+    color: red;
+    margin-top: 55px;
+    margin-left: 50px;
+}
+.aside .aside1 h3 {
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 15px;
+}
+
+.aside .aside1 ul {
+    list-style-type: none;
+    margin-left: 15px;
+}
+.aside .aside1 ul li {
+    margin-top: 10px;
+}
+
+.aside .aside2 {
+    width: 150px;
+    height: 250px;
+    margin-top: 75px;
+    margin-left: 50px;
+}
+.aside .aside2 h3 {
+    color: red;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: -5px;
+    margin-bottom: 29px;
+}
+
+.aside .aside2 ul {
+    list-style-type: none;
+}
+.aside .aside2 ul li {
+    margin-top: -10px;
+}
+
+.footer {
+    width: 100%;
+    height: 30px;
+    background-color: #808080d6;
+    clear: both;
+}
+.footer p {
+    color: white;
+    font-size: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 30px;
+}

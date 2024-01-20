@@ -1,0 +1,187 @@
+* {
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+#wrapper {
+    width: 1000px;
+    height: 960px;
+    border: 1px solid black;
+    background-image: url("../images/background.jpg");
+    background-repeat: repeat;
+}
+
+header .logo {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+header .logo img {
+    width: 770px;
+    height: 115px;
+}
+
+nav {
+    width: 204px;
+    height: 740px;
+    float: left;
+    margin-top: 20px;
+    border-right: green 2px solid;
+}
+
+.link1 {
+    width: 170px;
+    height: 200px;
+    background-color: rgb(222, 215, 215);
+}
+
+.link2 {
+    width: 165px;
+    height: 195px;
+    background-color: white;
+    box-shadow: 5px 5px 10px rgb(160, 154, 154);
+}
+
+.link3 {
+    width: 160px;
+    height: 190px;
+    background-color: white;
+    box-shadow: 5px 5px 10px rgba(186, 176, 176, 0.799);
+}
+
+.link3 a {
+    text-decoration: none;
+    margin-bottom: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.link3 a:hover {
+    color: brown;
+}
+
+section {
+    width: 774px;
+    height: 740px;
+    float: left;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+section .welcome {
+    width: 575px;
+    height: 35px;
+    background-color: green;
+    margin-right: 180px;
+    margin-top: -5px;
+    margin-bottom: 20px;
+}
+.welcome h1 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-style: italic;
+    padding-left: 60px;
+    line-height: 35px;
+    letter-spacing: 10px;
+}
+
+.image img {
+    width: 215px;
+    height: 301px;
+}
+.image {
+    width: 100px;
+    height: 200px;
+    margin-right: 107px;
+}
+
+section .para1 {
+    width: 547px;
+    height: 200px;
+    margin-top: -205px;
+    margin-left: 22px;
+    color: white;
+}
+
+section .para2 {
+    width: 695px;
+    height: 200px;
+    margin-top: 115px;
+    margin-left: 22px;
+    color: white;
+}
+
+section .hour1 {
+    background-color: green;
+    width: 350px;
+    height: 20px;
+    margin-left: 0px;
+    margin-top: 17px;
+}
+section .hour1 h3 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding-left: 10px;
+    line-height: 20px;
+}
+
+.hour ul {
+    margin-top: 15px;
+    margin-left: -3px;
+}
+
+section .dirction1 {
+    background-color: green;
+    width: 350px;
+    height: 20px;
+    margin-left: 0px;
+    margin-top: 17px;
+}
+section .dirction1 h3 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding-left: 10px;
+    line-height: 20px;
+}
+
+.dirction ul {
+    margin-top: 15px;
+    margin-left: -3px;
+}
+
+footer {
+    clear: both;
+    width: 100%;
+    height: 67px;
+}
+footer .line {
+    width: 100%;
+    height: 10px;
+    margin-top: 20px;
+    position: absolute;
+}
+footer .line hr {
+    border: 1px solid green;
+    margin-top: 2px;
+    width: 970px;
+    margin-left: 15px;
+}
+
+footer .addr {
+    width: 100%;
+    height: 30px;
+    margin-top: 35px;
+    margin-left: 200px;
+    position: absolute;
+}
+footer .addr address {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}

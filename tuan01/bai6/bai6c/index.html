@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+        }
+        
+        body{
+            width: 100%;
+            height: 700px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .content{
+            width: 300px;
+            height: 575px;
+            border: 2px solid rgb(53, 53, 198, 0.5);
+        }
+        
+        .name, .phone, .email, .color{
+            margin: 4px;
+            height: 50px;
+            font-size: 18px;
+            margin-bottom: 14px;
+        }
+        
+        .name > input, .phone > input, .email > input{
+            width: 70%;
+            height: 24px;
+            padding: 4px;
+            margin-top: 4px;
+            margin-bottom: 4px;
+        }
+        
+        .color{
+            height: 56px;
+        }
+        
+        .color input{
+            width: 20%;
+            height: 30px;
+            padding: 2px;
+            margin-top: 4px;
+            margin-bottom: 4px;
+        }
+        
+        .date{
+            margin: 4px;
+            height: 330px;
+            font-size: 18px;
+        }
+        
+        .date input{
+            width: 40%;
+            height: 28px;
+            line-height: 28px;
+        }
+        
+        .content input{
+            width: 100px;
+            height: 24px;
+            margin: 4px;
+        }
+        .content input[type="submit"]{
+            position: absolute;
+            bottom: 92px;
+            margin-left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <section class="content">
+        <div class="name">
+            <label for="name">Name:</label> <br>
+            <input type="text">
+        </div>
+        <div class="phone">
+            <label for="tele">Telephone Number:</label> <br>
+            <input type="text">
+        </div>
+        <div class="email">
+            <label for="email">Email</label> <br>
+            <input type="text">
+        </div>
+        <div class="color">
+            <label for="color">Favorite Color:</label> <br>
+            <input type="color" id="color" name="color" value="#000fff">
+        </div>
+        <div class="date">
+            <label for="date">Date of Birth:</label> <br>
+            <input type="date">
+        </div>
+        <input type="submit" value="submit">
+    </section>
+</body>
+</html>

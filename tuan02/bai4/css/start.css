@@ -1,0 +1,113 @@
+* {
+    margin: 0px auto;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#wrapper {
+    width: 850px;
+    height: 703px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.header {
+    width: 100%;
+    height: 80px;
+}
+.header .image {
+    width: 830px;
+    height: 80px;
+    border-bottom: 2px solid orange;
+    margin-left: 0px;
+}
+.header .image img {
+    margin-left: 516px;
+}
+
+.nav {
+    float: left;
+    width: 25%;
+    height: 620px;
+    background-image: url(../images/back.jpg);
+    background-size: 100%;
+}
+.menu ul {
+    list-style-type: none;
+    margin-left: -30px;
+}
+ul li {
+    margin-top: 1px;
+}
+ul li a {
+    color: purple;
+    text-decoration: none;
+    font-size: 17px;
+    border-bottom: 2px dotted brown;
+    padding-bottom: 8px;
+    display: block;
+    width: 170px;
+}
+
+.section {
+    float: left;
+    width: 75%;
+    height: 585px;
+    border-bottom: 3px solid orange;
+}
+
+.section .right {
+    width: 256px;
+    line-height: 1;
+    height: auto;
+    margin: 17px;
+    float: right;
+    border: 4px solid orange;
+    margin-left: 46px;
+    margin-top: 20px;
+}
+.section .right h2 {
+    font-size: 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.section h2 {
+    color: orange;
+    font-size: 24px;
+}
+.section p, li{
+    color: brown;
+}
+
+.section p {
+    margin-left: 21px;
+}
+
+.section > h2{
+    margin-top: 20px;
+    margin-left: 5px;
+    margin-bottom: 20px;
+}
+
+.section ul {
+    padding-left: 24px;
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+.section ul li {
+    margin-top: 3px;
+    margin-left: 15px;
+}
+
+.footer {
+    width: 100%;
+    height: 30px;
+    margin-top: 20px;
+}
+
+.footer p {
+    color: orange;
+    text-align: center;
+    line-height: 30px;
+}

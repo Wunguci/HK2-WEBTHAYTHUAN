@@ -1,0 +1,185 @@
+* {
+    margin: 0px auto;
+    padding: 0px;
+}
+
+.wrapper {
+    width: 1200px;
+    height: 710px;
+    background-color: rgb(104, 197, 255);
+    border: 1px solid black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+    width: 100%;
+    height: 60px;
+    border-bottom: 7px dotted white;
+    position: relative;
+}
+
+nav ul {
+    position: relative;
+    right: 10px;
+}
+
+ul li {
+    float: left;
+    list-style-type: none;
+    width: 126px;
+    height: 50px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 60px;
+    display: block;
+    text-align: center;
+}
+
+
+nav h1 {
+    text-align: right;
+    font-size: 38px;
+    position: relative;
+    right: 20px;
+    line-height: 60px;
+    color: white;
+    text-shadow: 0px 0px 10px rgb(17, 17, 225);;
+}
+
+section {
+    width: 100%;
+    height: 485px;
+}
+
+section h1 {
+    color: white;
+    font-size: 32px;
+    margin-top: 45px;
+    padding-left: 7px;
+}
+
+section p {
+    width: 490px;
+    color: white;
+    font-size: 15px;
+    margin-top: 20px;
+    margin-left: 10px;
+    text-align: justify;
+}
+
+section img {
+    width: 550px;
+    height: 320px;
+    float: right;
+    position: relative;
+    margin-right: 86px;
+    margin-top: -45px;
+}
+
+.info {
+    position: relative;
+    top: 5px;
+    padding-left: 59px;
+    color: white;
+}
+
+.info input {
+    margin-top: 5px;
+    
+    width: 247px;
+}
+
+.info select {
+    border-radius: 5px;
+}
+
+.info label[for="title"] {
+    margin-right: 145px;
+}
+
+.info label[for="name"] {
+    margin-right: 92px;
+}
+
+.info label[for="email"] {
+    margin-right: 62px;
+}
+
+.info label[for="city"] {
+    margin-right: 148px;
+}
+
+.info label[for="country"] {
+    margin-right: 119px;
+}
+
+.info label[for="questions"] {
+    width: 200px;
+    height: 50px;
+    position: fixed;
+    margin-top: 30px;
+}
+
+.info textarea {
+    margin-left: 180px;
+    margin-top: 5px;
+    border-radius: 5px;
+    width: 250px;
+    height: 100px;
+}
+
+.info input[type="submit"], input[type="reset"] {
+    width: 60px;
+    height: 22px;
+    border-radius: 5px;
+    border: 2px dotted blue;
+}
+
+.info input[type="submit"] {
+    margin-left: 180px;
+}
+
+section h1:nth-child(5){
+    color: blue;
+    text-shadow: 4px 3px 0px blue;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 45px;
+    position: relative;
+    left: 605px;
+    top: -90px;
+}
+
+section h3 {
+    color: blue;
+    font-size: 22px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    position: relative;
+    left: 632px;
+    top: -90px
+}
+
+footer {
+    color: white;
+    width: 100%;
+    height: 80px;
+    border-top: 7px dotted white;
+    position: relative;
+}
+
+footer>p{
+    position: relative;
+    left: 430px;
+    top: 25px;
+}
+
+footer p:nth-child(2) {
+    position: relative;
+    left: 322px;
+    top: 30px;
+}

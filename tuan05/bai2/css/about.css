@@ -1,0 +1,39 @@
+.container-fluid {
+    background-image: url(../images/hero-bg.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat; 
+}  
+
+
+a.navbar-brand.text-white {
+    font-family: Rage;
+    font-size: 35px;
+    margin-left: 180px;
+}
+
+a.nav-link.text-white {
+     margin-left: 25px;
+}
+
+
+button.btn.btn-warning {
+    border-radius: 20px;
+    width: 140px;
+    color: white;
+}
+
+h1 {
+    font-family: Rage;
+    font-size: 40px;
+}
+
+p {
+    font-size: 15px;
+    width: 505px;
+}
+
+
+.col-6.mt-5.mb-5 {
+    padding-left: 300px;
+    padding-top: 15px;
+}  

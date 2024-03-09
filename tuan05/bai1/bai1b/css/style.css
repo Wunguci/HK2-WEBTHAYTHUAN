@@ -1,0 +1,71 @@
+.container {
+    background-image: linear-gradient(to right, rgb(255, 167, 240), rgb(132, 226, 255));
+    height: 739px;
+}
+
+nav.navbar.navbar-expand-lg {
+    background-color: grey;
+}
+
+.navbar-nav {
+    margin-left: 65px;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+li.nav-item {
+    margin-right: 15px;
+}
+
+a.navbar-brand {
+    padding-left: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+}
+
+a.nav-item.nav-link.active.dropdown-toggle {
+    color: white;
+}
+
+
+button.btn.btn-info.col-2 {
+    color: white;
+    width: 200px;
+    border-radius: 20px;
+}
+
+img.img-thumbnail {
+    padding: 0;
+}
+
+#img1 img {
+    width: 470px;
+    height: auto;
+    margin-left: 30px;
+}
+
+img#img2 {
+    margin-top: 69px;
+}
+
+
+h1 {
+    font-size: 75px;
+    padding-left: 45px;
+}
+
+p {
+    font-size: 24px;
+    letter-spacing: 5px;
+    padding-left: 45px;
+}
+
+button.btn.btn-outline-dark {
+    width: 170px;
+    height: 52px;
+    border-radius: 27px;
+    border: 2px solid black;
+    font-size: 14px;
+    margin-left: 45px;
+}

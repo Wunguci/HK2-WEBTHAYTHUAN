@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../css/home.css">
+    
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row d-flex flex-row">
+            <div class="col-9">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand text-white " href="home.html">Feane</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-link text-white" aria-current="page" href="home.html">HOME</a>
+                            <a class="nav-link text-white" href="menu.html">MENU</a>
+                            <a class="nav-link text-white" href="about.html">ABOUT</a>
+                            <a class="nav-link text-white" href="book.html">BOOK TABLE</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>  
+            <div class="col-3 mt-3">
+                <img class="me-2" src="../images/taikhoan.png" width="15" height="15">
+                <img class="me-2" src="../images/giohang.png"  width="18" height="18">
+                <img class="me-3" src="../images/timkiem.png"  width="19" height="19">
+                <button class="btn btn-warning" type="button">Order Online</button>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-sm-6">
+                <h1>Fast Food Restaurant</h1>
+                <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" id="ordernow">
+                <button class="btn btn-warning" type="button" data-bs-toggle="modal" data-bs-target="#orderModal">Order Now</button>
+                <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-warning" id="orderModalLabel">Order</h5>
+                                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body mt-2">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <label class="form-label" for="telephone">Telephone</label>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-12">
+                                            <input class="form-control border-warning" type="text" name="telephone" id="telephone" placeholder="Telephone">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <label class="form-label" for="email">Email</label>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-12">
+                                            <input class="form-control border-warning" type="email" name="email" id="email" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <input class="form-check-check" type="checkbox" name="remember" id="remember">
+                                            <label class="form-check-label me-5">Check me out</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-warning text-black bt1">Order</button>
+                                <button type="button" class="btn btn-warning text-black bt1" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 point">
+                <a class="nav-link" href="#">.</a>
+                <a class="nav-link" href="#">.</a>
+                <a class="nav-link text-warning" href="#">.</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+.container-fluid {
+    background-image: url(../images/hero-bg.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}  
+
+
+a.navbar-brand.text-white {
+    font-family: Rage;
+    font-size: 35px;
+    margin-left: 180px;
+}
+
+a.nav-link.text-white {
+     margin-left: 25px;
+}
+
+button.btn.btn-warning {
+    border-radius: 20px;
+    width: 140px;
+    color: white;
+}
+
+h1 {
+    font-family: Rage;
+    font-size: 45px;
+    padding-top: 90px;
+}
+
+.row.justify-content-center {
+    background-color: white;
+    padding-left: 195px;
+}
+
+
+img.img-thumbnail {
+    border-radius: 100px 100px 100px 100px;
+}
+
+
+.row.para {
+    width: 320px;
+    height: 180px;
+    color: white;
+}
+
+.col-md-4.bg-dark {
+    width: 310px;
+}
+
+div#img {
+    border-radius: 0 0 0 50px;
+    height: 130px;
+}
+
+img.img.rounded-circle {
+    margin-left: 90px;
+}
+
+
+ul#myTab {
+    margin-left: 300px;
+}
+
+button#all-tab,
+button#burger-tab,
+button#pizza-tab,
+button#pasta-tab,
+button#fries-tab {
+    border-radius: 20px
+}
+
+button#all-tab.active,
+button#burger-tab.active,
+button#pizza-tab.active,
+button#pasta-tab.active,
+button#fries-tab.active {
+    background-image: linear-gradient(to right, rgb(5, 4, 33), rgb(85, 85, 85));
+    border: 1px solid black;
+}

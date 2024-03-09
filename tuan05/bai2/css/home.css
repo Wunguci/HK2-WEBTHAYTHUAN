@@ -1,0 +1,81 @@
+.container-fluid {
+    background-image: url(../images/hero-bg.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}   
+
+
+a.navbar-brand.text-white {
+    font-family: Rage;
+    font-size: 35px;
+    margin-left: 180px;
+}
+
+a.nav-link.text-white {
+     margin-left: 25px; 
+}
+
+
+button.btn.btn-warning {
+    border-radius: 20px;
+    width: 140px;
+    color: white;
+}
+
+h1 {
+    font-family: Rage;
+    font-size: 52px;
+    color: white;
+    width: 400px;
+}
+
+p {
+    color: white;
+    font-size: 16px;
+    width: 585px;
+}
+
+.col-sm-6 {
+    padding-left: 190px;
+    padding-top: 155px;
+}
+
+#ordernow {
+    padding-left: 190px;
+    padding-top: 10px;
+}
+
+.bt1 {
+    font-size: 15px;
+}
+
+.col-sm-3.point {
+    padding-left: 190px;
+    font-size: 80px;
+    color: white;
+    display: flex;
+    padding-bottom: 72px;
+} 
+
+a.nav-link.text-warning {
+    font-size: 120px;
+    position: relative;
+    bottom: 46px;
+}
+
+@font-face 
+{
+     font-family: 'font-strong-ttf';
+            src: url('../fonts/fontawesome-webfont.ttf') format('truetype');
+}
+
+@font-face 
+{
+     font-family: 'font-strong-woff2';
+     src: url('../fonts/fontawesome-webfont.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'font-new-woff';
+    src: url('../fonts/fontawesome-webfont.woff') format('woff');
+}

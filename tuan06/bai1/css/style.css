@@ -1,0 +1,22 @@
+table, th, td {
+    border: 1px solid black;
+}
+
+table {
+    width: 35%;
+}
+
+table tr th {
+    color: hotpink;
+    border: 1px solid hotpink;
+}
+
+.main {
+    width: 1000px;
+    padding-top: 20px;
+    margin-left: 550px;
+}
+
+button {
+    margin-bottom: 20px;
+}

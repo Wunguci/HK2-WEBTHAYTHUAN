@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/calculator.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-5 border w-50">
+            <form class="form">
+                <div class="row">
+                    <div class="col-6">
+                        <h4>PHÉP TÍNH CƠ BẢN</h4>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-3 ms-5">
+                        <label class="form-control-label ms-4 h6">Nhập số thứ 1</label>
+                    </div>
+                    <div class="col-5">
+                        <input id="num1" class="form-control border-dark-subtle" type="text">
+                    </div>
+                    <div class="col-3">
+                        <span id="tb1" style="color: red;"><i>(*)</i></span>
+                    </div>
+                </div> 
+                <div class="row mb-2">
+                    <div class="col-3 ms-5">
+                        <label class="form-control-label ms-4 h6">Nhập số thứ 2</label>
+                    </div>
+                    <div class="col-5">
+                        <input id="num2" class="form-control border-dark-subtle" type="text">
+                    </div>
+                    <div class="col-3">
+                        <span id="tb2" style="color: red;"><i>(*)</i></span>
+                    </div>
+                </div>
+                <div class="row mb-2 ms-5">
+                    <div class="col ms-5">
+                        <button class="btn btn-outline-dark btn-sm ms-5" type="button" onclick="calculator('add')">Cộng</button>
+                        <button class="btn btn-outline-dark btn-sm ms-3" type="button" onclick="calculator('sub')">Trừ</button>
+                        <button class="btn btn-outline-dark btn-sm ms-3" type="button" onclick="calculator('div')">Chia</button>
+                        <button class="btn btn-outline-dark btn-sm ms-3" type="button" onclick="calculator('res')">Chia dư</button>
+                    </div>
+                </div>
+                <div class="row mx-5">
+                    <div class="col-2 ms-5">
+                        <label class="form-control-label h6">Kết quả</label>
+                    </div>
+                    <div class="col-6 ms-3">
+                        <input id="result" class="form-control border-dark-subtle" type="text" disabled>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

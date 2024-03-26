@@ -1,0 +1,16 @@
+.container {
+    margin: 0 auto;
+}
+
+p {
+    font-size: 20px;
+}
+
+label {
+    font-size: 18px;
+}
+
+span {
+    color: red;
+    font-size: 17px;
+}

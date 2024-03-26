@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container border">
+        <p>Chọn loại cafe :</p>
+        <div class="form-check">
+            <input id="check1" type="checkbox" class="form-check-input" data-label="Trung Nguyen">
+            <label for="" class="form-check-label">Trung Nguyen</label>
+        </div>
+        <div class="form-check">
+            <input id="check2" type="checkbox" class=   "form-check-input" data-label="Me Kong">
+            <label for="" class="form-check-label">Me Kong</label>
+        </div>
+        <div class="form-check">
+            <input id="check3" type="checkbox" class="form-check-input" data-label="New life">
+            <label for="" class="form-check-label">New life</label>
+        </div>
+        <div class="form-check">
+            <input id="check4" type="checkbox" class="form-check-input" data-label="Ocean Blue">
+            <label for="" class="form-check-label">Ocean Blue</label>
+        </div>
+        <div class="form-check">
+            <input id="check5" type="checkbox" class="form-check-input" data-label="Blue Space">
+            <label for="" class="form-check-label">Blue Space</label>
+        </div>
+        <div class="form-check mb-3">   
+            <input id="check6" type="checkbox" class="form-check-input" data-label="Windows">
+            <label for="" class="form-check-label">Windows</label>
+        </div>
+        <button class="btn btn-outline-dark btn-sm mb-2" type="button" onclick="displaySelected()">Chọn</button>
+        <p>Bạn chọn cafe: <span class="user-select"></span></p>
+    </div>
+    <script>
+        function displaySelected(){
+            let isSelect = [];
+            let getCheckboxes = document.querySelectorAll('.form-check-input:checked');
+            getCheckboxes.forEach(checkbox => {
+                let label = checkbox.getAttribute('data-label');
+                isSelect.push(label);
+            });
+
+            let userSelect = document.querySelector('.user-select');
+            userSelect.innerHTML = isSelect.join(', ');
+        }
+
+        /*
+        let check1 = document.getElementById('check1');
+        let check2 = document.getElementById('check2');
+        let check3 = document.getElementById('check3');
+        let check4 = document.getElementById('check4');
+        let check5 = document.getElementById('check5');
+        let check6 = document.getElementById('check6');
+
+        function buttonClick() {
+            let result = '';
+
+            if(check1.checked) {
+                result += "Trung Nguyen, ";
+            }
+            if(check2.checked) {
+                result += "Me Kong, ";
+            }
+            if(check3.checked) {
+                result += "New life, ";
+            }
+            if(check4.checked) {
+                result += "Ocean Blue, ";
+            }
+            if(check5.checked) {
+                result += "Blue Space, ";
+            }
+            if(check6.checked) {
+                result += "Windows, ";
+            }
+            document.getElementById('select').innerText = result;
+        }
+
+        document.getElementById('checkButton').addEventListener('click', buttonClick);
+        */
+    </script>
+</body>
+</html>

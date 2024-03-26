@@ -1,0 +1,73 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <script src="../js/jquery-3.7.1.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/main.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <form class="form-control">
+                <h5 class="form-title text-center">FORM ĐỊNH DẠNG</h5>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-4">
+                        <div class="row mb-2">
+                            <div class="col-3 mx-auto">
+                                <label>Họ và tên</label>
+                            </div>
+                            <div class="col-9">
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-3">
+                                <label class="form-label">Chọn</label>
+                            </div>
+                            <div class="col-4">
+                                <input name="radio" class="form" type="radio" value="Background">
+                                <label>Background</label>
+                            </div>
+                            <div class="col-5">
+                                <input name="radio" type="radio" value="Font">
+                                <label>Font</label>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-3">
+                                <label class="form-label">Chọn màu</label>
+                            </div>
+                            <div class="col">
+                                <select id="selectColor">
+                                    <option value="Selected">Chọn màu...</option selected>
+                                    <option value="Red">Red</option>
+                                    <option value="Blue">Blue</option>
+                                    <option value="Green">Green</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row ms-5 mb-4">
+                            <div class="col-12 ms-5">
+                                <button onclick="changeColor()" class="btn btn-outline-dark btn-sm" type="button">Đổi màu</button>
+                                <button class="btn btn-outline-dark btn-sm" type="button">Cancel</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 content">
+                                <p>you can direct link the hyperlink with the file if you know the address but this is limited by the browser.
+                                    eg. if pdf reader is installed on the client then the pdf will not be downloaded instead it will be shown. A
+                                    good solution would be to have a seperate page for downloading files. just pass filename in querystring and
+                                    in the pageload event just outpit the file in response stream. This way you can use url say dwnld.aspx?
+                                    filename.ext</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+    </html>

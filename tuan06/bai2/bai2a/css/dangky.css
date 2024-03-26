@@ -1,0 +1,22 @@
+table {
+    border: 1px solid black;
+    width: 25%;
+}
+
+table th, td{
+    border-bottom: 1px solid black;
+}
+
+table th {
+    background-color: rgb(186, 195, 203);
+    font-size: 25px;
+    color: rgb(238, 147, 137);
+}
+
+.hoten, .matkhau, .nhap {
+    border-right: 1px solid black;
+}
+
+.main, table {
+    margin: 0 auto;
+}

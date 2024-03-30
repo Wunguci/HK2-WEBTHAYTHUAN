@@ -1,0 +1,11 @@
+p {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.bg-white {
+    display: inline-block; 
+    width: 85%; 
+    border: 1px solid rgb(211, 206, 206);
+    margin: 20px;
+}

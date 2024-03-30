@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script>
+        $(document).ready(function() {
+            $('#dangKy').click(function() {
+                event.preventDefault();
+
+                // Xoa cac thong bao loi cu
+                $('span').remove();
+                $('input').removeClass('is-invalid');
+
+                var hoTen = $('#hoTen').val().trim();
+                var tenDangNhap = $('#tenDangNhap').val().trim();
+                var matKhau = $('#matKhau').val().trim();
+                var xnMK = $('#xnMK').val().trim();
+                var ngaySinh = $('#ngaySinh').val().trim();
+                var dienThoai = $('#dienThoai').val().trim();
+                var diaChi = $('#diaChi').val().trim();
+                var email = $('#email').val().trim();
+                var soThich = $('#selectSoThich').val().trim();
+
+                // Kt dữ liệu
+                var isValid = true;
+
+                // Kt cac truong bat buoc nhap
+                if(hoTen === '') {
+                    $('#hoTen').addClass('is-invalid').after('<span class="text-danger">Họ tên không được để trống</span>');
+                    $('#hoTen').focus();
+                    isValid = false;
+                }
+
+                if(tenDangNhap.length < 6) {
+                    $('#tenDangNhap').addClass('is-invalid').after('<span class="text-danger">Tên đăng nhập phải lớn hơn 6 ký tự</span>');
+                    $('#tenDangNhap').focus();
+                    isValid = false;
+                }
+
+                if(matKhau === '') {
+                    $('#matKhau').addClass('is-invalid').after('<span class="text-danger">Mật khẩu không được để trống</span>');
+                    $('#matKhau').focus();
+                    isValid = false;
+                }
+
+                if(xnMK === '') {
+                    $('#xnMK').addClass('is-invalid').after('<span class="text-danger">Xác nhận mật khẩu không được để trống</span>');
+                    $('#xnMK').focus();
+                    isValid = false;
+                }
+
+                if(matKhau !== xnMK) {
+                    $('#xnMK').addClass('is-invalid').after('<span class="text-danger">Mật khẩu không trùng khớp</span>');
+                    $('#xnMK').focus();
+                    isValid = false;
+                }
+
+                if(dienThoai === '') {
+                    $('#dienThoai').addClass('is-invalid').after('<span class="text-danger">Điện thoại không được để trống</span>');
+                    $('#dienThoai').focus();
+                    isValid = false;
+                }else {
+                    // Kiem tra dien thoai co phai la so hay khong
+                    var regPhone = /^\d+$/;
+                    if(!regPhone.test(dienThoai)) {
+                        $('#dienThoai').addClass('is-invalid').after('<span class="text-danger">Điện thoại phải là số</span>');
+                        $('#dienThoai').focus();
+                        isValid = false;
+                    }
+                }
+
+                if(email === '') {
+                    $('#email').addClass('is-invalid').after('<span class="text-danger">Email không được để trống</span>');
+                    $('#email').focus();
+                    isValid = false;
+                }else {
+                    // Kiem tra email
+                    var regEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                    if(!regEmail.test(email)) {
+                        $('#email').addClass('is-invalid').after('<span class="text-danger">Email không hợp lệ</span>');
+                        $('#email').focus();
+                        isValid = false;
+                    }
+                }
+
+                // Neu du lieu khong hop le thi dung lai
+                if(!isValid) {
+                    $('#error-message').html('Vui lòng kiểm tra lại các trường dữ liệu');
+                    return;
+                }else {
+                    sessionStorage.setItem('hoTen', hoTen);
+                    sessionStorage.setItem('tenDangNhap', tenDangNhap);
+                    sessionStorage.setItem('matKhau', matKhau);
+                    sessionStorage.setItem('ngaySinh', ngaySinh);
+                    sessionStorage.setItem('dienThoai', dienThoai);
+                    sessionStorage.setItem('diaChi', diaChi);
+                    sessionStorage.setItem('email', email);
+                    sessionStorage.setItem('soThich', soThich);
+                }
+
+                // Neu du lieu hop le thi hien thi thong bao thanh cong
+                setTimeout(function() {
+                    $('#success-message').html('Đăng ký thành công');
+                }, 2000);
+
+                setTimeout(function() {
+                    window.location.href = '../html/thongtin.html';
+                }, 3000);
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-6">
+                <p style="text-align: center;">Register Form</p>
+                <!-- Message  -->
+                <div id="error-message" class="text-danger mt-3"></div>
+                <div id="success-message" class="text-success mt-3"></div>
+                <table class="table table-bordered" style="border: 1px solid green">
+                    <tr>
+                        <td>Họ và tên (*):</td>
+                        <td><input class="form-control" type="text" name="hoTen" id="hoTen"></td>
+                    </tr>
+                    <tr>
+                        <td>Tên đăng nhập (*):</td>
+                        <td><input class="form-control" type="text" name="tenDangNhap" id="tenDangNhap"></td>
+                    </tr>
+                    <tr>
+                        <td>Mật khẩu (*):</td>
+                        <td><input class="form-control" type="password" name="matKhau" id="matKhau"></td>
+                    </tr>
+                    <tr>
+                        <td>Xác nhận mật khẩu (*):</td>
+                        <td><input class="form-control" type="password" name="xnMK" id="xnMK"></td>
+                    </tr>
+                    <tr>
+                        <td>Ngày sinh:</td>
+                        <td><input type="date" name="ngaySinh" id="ngaySinh"></td>
+                    </tr>
+                    <tr>
+                        <td>Điện thoại:</td>
+                        <td><input class="form-control" type="text" name="di    enThoai" id="dienThoai"></td>
+                    </tr>
+                    <tr>
+                        <td>Địa chỉ:</td>
+                        <td><input class="form-control" type="text" name="diaChi" id="diaChi"></td>
+                    </tr>
+                    <tr>
+                        <td>Email khác:</td>
+                        <td><input class="form-control" type="email" name="email" id="email"></td>
+                    </tr>
+                    <tr>
+                        <td>Sở thích:</td>
+                        <td>
+                            <select class="form-select-sm" name="selectSoThich" id="selectSoThich">
+                                <option value="Ca nhạc">Ca nhạc</option selected>
+                                <option value="Nhay">Nhảy</option>
+                                <option value="Doc sach">Đọc sách</option>
+                                <option value="Nghe nhac">Nghe nhạc</option>
+                                <option value="Kham pha">Khám phá</option>
+                                <option value="Du lich">Du lịch</option>
+                                <option value="Nau an">Nấu ăn</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button id="dangKy" class="btn btn-outline-dark btn-sm" type="button">Đăng ký</button>
+                            <button id="huy" class="btn btn-outline-dark btn-sm" type="button">Hủy</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

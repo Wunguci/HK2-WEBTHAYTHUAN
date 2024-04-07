@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div {
+    border-bottom: 1px solid #efefef;
+    margin: auto;
+
+}
+
+.title {
+    float: left;
+    width: 200px;
+    text-align: right;
+    padding-right: 10px;
+    color: black;
+    font-size: 18px;
+}
+
+.form-group .form {
+    width: 270px;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.form-group label {
+    text-align: right;
+}
+
+.radio-buttons label {
+    float: none;    
+}
+
+.submit input[type=submit],
+.submit input[type=reset] {
+    padding: 0.1em 0.2em;
+    border: 1px solid hsla(0, 0%, 0%, 0.3);
+    -webkit-border-radius: 5px;
+    background-color: black;
+    color: white;
+    text-shadow: 0 -1px 0 hsla(0, 0%, 0%, 0.8);
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit input[type=submit]:hover,
+.submit input[type=reset]:hover {
+    background-color: rgb(56, 46, 46);
+    transition: 0.3s;
+}
+
+span {
+    font-size: 14px;
+}

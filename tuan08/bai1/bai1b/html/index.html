@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script>
+        $(document).ready(function() {
+            $('#ho').focus();
+
+            function kiemTraHo(val, tb) {
+                let regHo = /^([A-Z][a-z]*\s?)+$/;
+                if(!regHo.test(val)) {
+                    $(tb).html("Họ phải viết hoa chữ cái đầu.");
+                    return false;
+                } else {
+                    $(tb).html("*");
+                    return true;
+                }
+            }
+
+            $('#ho').blur(function(e) {
+                let ho = $('#ho').val();
+                kiemTraHo(ho, '#tbHoTen');
+            });
+
+            function kiemTraTen(val, tb) {
+                let regTen = /^[A-Z][a-z]*$/;
+                if(!regTen.test(val)) {
+                    $(tb).html("Tên phải viết hoa chữ cái đầu.");
+                    return false;
+                } else {
+                    $(tb).html("*");
+                    return true;
+                }
+            }
+
+            $('#ten').blur(function(e) {
+                let ten = $('#ten').val();
+                kiemTraTen(ten, '#tbHoTen');
+            });
+
+            function kiemTraEmail(val, tb) {
+                let regEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+                if(!regEmail.test(val)) {
+                    $(tb).html("Email không hợp lệ. (Example@gmail.com)");
+                    return false;
+                } else {
+                    $(tb).html("*");
+                    return true;
+                }
+            }
+
+            $('#emailDN').blur(function(e) {
+                let emailDN = $('#emailDN').val();
+                kiemTraEmail(emailDN, '#tbEmailDN');
+            });
+
+            function kiemTraEmailNL(val1, val2, tb) {
+                if(val1 != val2) {
+                    $(tb).html("Email nhập lại không khớp.");
+                    return false;
+                } else {
+                    $(tb).html("*");
+                    return true;
+                }
+            }
+
+            $('#emailNL').blur(function(e) {
+                let emailDN = $('#emailDN').val();
+                let emailNL = $('#emailNL').val();
+                kiemTraEmailNL(emailDN, emailNL, '#tbEmailNL');
+            });
+
+            
+            function kiemTraPass(val, tb) {
+                let regPass = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+                if(!regPass.test(val)) {
+                    $(tb).html("Mật khẩu phải có ít nhất 6 ký tự, bao gồm chữ và số.");
+                    return false;
+                } else {
+                    $(tb).html("*");
+                    return true;
+                }
+            }
+
+            $('#pass').blur(function(e) {
+                let pass = $('#pass').val();
+                kiemTraPass(pass, '#tbPass');
+            });
+
+            function kiemTraNamSinh(val, tb) {
+                val = parseInt(val);
+                if(isNaN(val)) {
+                    $(tb).html("Năm sinh phải là số.");
+                    return false;
+                } 
+
+                if(val < 2002) {
+                    $(tb).html("*");
+                    return true;
+                } else {                 
+                    $(tb).html("Năm sinh phải nhỏ hơn 2002.");
+                    return false;
+                }
+            }
+
+            $('#namsinh').blur(function(e) {
+                let namsinh = $('#namsinh').val();
+                kiemTraNamSinh(namsinh, '#tbNamsinh');
+            });
+
+            $('#btn_dangKy').click(function(e) {
+                let ho = $('#ho').val();
+                let ten = $('#ten').val();
+                let emailDN = $('#emailDN').val();
+                let emailNL = $('#emailNL').val();
+                let pass = $('#pass').val();
+                let namsinh = $('#namsinh').val();
+
+                let ktHo = kiemTraHo(ho, '#tbHoTen');
+                let ktTen = kiemTraTen(ten, '#tbHoTen');
+                let ktEmailDN = kiemTraEmail(emailDN, '#tbEmailDN');
+                let ktEmailNL = kiemTraEmailNL(emailDN, emailNL, '#tbEmailNL');
+                let ktPass = kiemTraPass(pass, '#tbPass');
+                let ktNamSinh = kiemTraNamSinh(namsinh, '#tbNamsinh');
+
+                if(ktHo && ktTen && ktEmailDN && ktEmailNL && ktPass && ktNamSinh) {
+                    alert("Đăng ký thành công.");
+                } else {
+                    alert("Đăng ký thất bại.");
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row header">
+            <div class="col-md-7 col-7">
+                <p>facebook</p>
+            </div>
+            <div class="col-md-5 col-5">
+                <form>
+                    <div class="row">
+                        <div class="col-md-4 col-4">
+                            <div class="form-group">
+                                <label class="mt-1" for="txtemail">Email hoặc điện thoại</label>
+                                <input class="mt-1" type="email" name="txtemail" id="txtemail">
+                                <div class="form-check-inline mt-2">
+                                    <input type="checkbox" name="check" id="check">
+                                    <label for="duyTriDangNhap">Duy trì đăng nhập</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-4">
+                            <div class="form-group">
+                                <label class="mt-1" for="txtmatkhau">Mật khẩu</label>
+                                <input class="mt-1" type="password" name="txtmatkhau" id="txtmatkhau">
+                                <a class="nav-link mt-2" href="#">Quên mật khẩu?</a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-3 d-flex align-items-center justify-content-center">
+                            <button  type="button">Đăng nhập</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-md-6 col-6">
+                <div class="img">
+                    <img src="../img/bg.png" alt="">
+                </div>
+                <h1>Cảm ơn bạn đã ghé thăm!</h1>
+                <p>Chúng tôi mong được gặp lại bạn</p>
+            </div>
+            <div class="col-md-6 col-6 justify-content-center " >
+                <form>
+                    <h1 style="font-weight: 700;" class="mt-5">Đăng ký</h1>
+                    <h6 style="font-weight: 700;" class="mt-4">Miễn phí và sẽ luôn như vậy</h6>
+                    <div class="form-group mt-4">
+                        <input style="border-radius: 5px; border: 1px solid gray;height: 35px;" type="text" name="ho" id="ho" placeholder="Họ">
+                        <input style="border-radius: 5px; border: 1px solid gray;height: 35px;" type="text" name="ten" id="ten" placeholder="Tên">
+                        <span style="color: red;" id="tbHoTen">*</span>
+                    </div>
+                    <div class="form-group mt-3">
+                        <input style="width: 52%;height: 35px;border-radius: 5px; border: 1px solid gray;" type="email" name="emailDN" id="emailDN" placeholder="Email đăng nhập">
+                        <span style="color: red;" id="tbEmailDN">*</span>
+                    </div>   
+                    <div class="form-group mt-3">
+                        <input style="width: 52%;height: 35px;border-radius: 5px; border: 1px solid gray;" type="email" name="emailNL" id="emailNL" placeholder="Nhập lại email">
+                        <span style="color: red;" id="tbEmailNL">*</span>
+                    </div>
+                    <div class="form-group mt-3">
+                        <input style="width: 52%;height: 35px;border-radius: 5px; border: 1px solid gray;" type="password" name="pass" id="pass" placeholder="Mật khẩu">
+                        <span style="color: red;" id="tbPass">*</span>
+                    </div>
+                    <div class="form-group mt-3">
+                        <input style="width: 52%;height: 35px;border-radius: 5px; border: 1px solid gray;" type="text" name="namsinh" id="namsinh" placeholder="Năm sinh">
+                        <span style="color: red;" id="tbNamsinh">*</span>
+                    </div>
+                    <div class="form-group mt-3">
+                        <button id="btn_dangKy" style="width: 150px;" type="button" class="btn btn-success btn-sm">Đăng ký</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

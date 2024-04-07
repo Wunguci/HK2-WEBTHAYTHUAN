@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script>
+        $(document).ready(function() {
+            $('#txtDN').focus();
+
+            function kiemTraTenDangNhap(val, tb) {
+                let regTenDN = /^[a-zA-Z][a-zA-Z0-9@#$%^&+=]*$/;
+                if(!regTenDN.test(val)) {
+                  $(tb).text('Bắt đầu là ký tự, có hoặc không có ký tự số, ký tự đặc biệt và không được có khoảng trắng.');
+                  return false;
+                }else {
+                    $(tb).html('*');
+                    return true;
+                }
+            }
+
+            $('#txtDN').blur(function (e){
+                e.preventDefault();
+                let tenDN = $('#txtDN').val();
+                kiemTraTenDangNhap(tenDN, '#tbTDN');
+            });
+
+            function kiemTraMatKhau(val, tb) {
+                let regMK = /^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*()]).{8,}$/;
+                if(!regMK.test(val)) {
+                    $(tb).text('Mật khẩu từ 8 ký tự trở lên, ít nhất 1 ký tự só, 1 ký tự viết hoa, 1 ký tự đặt biệt.');
+                    return false;
+                }else {
+                    $(tb).html('*');
+                    return true;
+                }
+            }
+
+            $('#txtMK').blur(function (e){
+                e.preventDefault();
+                let matKhau = $('#txtMK').val();
+                kiemTraMatKhau(matKhau, '#tbMK');
+            });
+
+            function kiemTraXacNhanMatKhau(val1, val2, tb){
+                if(val1 !== val2) { 
+                    $(tb).text('Mật khẩu không trùng khớp.');
+                    return false;
+                } else {
+                    $(tb).html('*');
+                    return true;
+                }
+            }
+
+            $('#txtXNMK').blur(function (e){
+                e.preventDefault();
+                let matKhau = $('#txtMK').val();
+                let xacNhanMK = $('#txtXNMK').val();
+                kiemTraXacNhanMatKhau(matKhau, xacNhanMK, '#tbXNMK');
+            });
+
+            function kiemTraHoTen(val, tb) {
+                let regHoTen = /^([A-Z][a-z]*\s)([A-Z][a-z]*\s*)+$/;
+                if(!regHoTen.test(val)) {
+                    $(tb).text('Họ và tên phải viết hoa chữ cái đầu tiên, không chứa ký tự số và ký tự đặc biệt.');
+                    return false;
+                }else {
+                    $(tb).html('*');
+                    return true;
+                }
+            }
+
+            $('#txtName').blur(function (e){
+                e.preventDefault();
+                let hoTen = $('#txtName').val();
+                kiemTraHoTen(hoTen, '#tbHoten');
+            });
+
+            function kiemTraNgaySinh(val, tb) {
+                let today = new Date();
+                val = new Date(val);
+                let age = today.getFullYear() - val.getFullYear();
+                if(age <= 16) {
+                    $(tb).text('Tuổi phải lớn hơn 16.');
+                    return false;
+                } else {
+                    $(tb).html('');
+                    return true;
+                }
+            }
+
+            $('#txtNS').blur(function (e){
+                e.preventDefault();
+                let ngaySinh = $('#txtNS').val();
+                kiemTraNgaySinh(ngaySinh, '#tbNgaySinh');
+            });
+
+            function kiemTraDiaChi(val, tb) {
+                let regDiaChi = /^[A-Za-z0-9,\s]+$/;
+                if(!regDiaChi.test(val)) {
+                    $(tb).text('Địa chỉ không được để trống.');
+                    return false;
+                }else {
+                    $(tb).html('');
+                    return true;
+                }
+            }
+
+            $('#txtDC').blur(function (e){
+                e.preventDefault();
+                let diaChi = $('#txtDC').val();
+                kiemTraDiaChi(diaChi, '#tbDC');
+            });
+
+            function kiemTraDienThoai(val, tb) {
+                let refDienThoai = /^(09|03|07|06|05|04)\d{8}$/;
+                if(!refDienThoai.test(val)) {
+                    $(tb).text('Số điện thoại 10 ký tự số, bắt đầu là 09, 03, 07, 06, 05, 04.');
+                    return false;
+                }else {
+                    $(tb).html('');
+                    return true;
+                }
+            }
+
+            $('#txtDT').blur(function (e){
+                e.preventDefault();
+                let dienThoai = $('#txtDT').val();
+                kiemTraDienThoai(dienThoai, '#tbDT');
+            });
+
+            function kiemTraEmail(val, tb) {
+                let regEmail = /^[\w_\.]+@([\w_]+\.)+[\w_]{2,4}$/;
+                if(!regEmail.test(val)) {
+                    $(tb).text('Email không đúng định dạng.');
+                    return false;
+                }else {
+                    $(tb).html('');
+                    return true;
+                }
+            }
+
+            $('#txtEmail').blur(function (e){
+                e.preventDefault();
+                let email = $('#txtEmail').val();
+                kiemTraEmail(email, '#tbEmail');
+            });
+        })
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center mt-3">
+            <div class="col-6 border">
+                <h2 style="font-weight: 700;" align="center">ĐĂNG KÝ TÀI KHOẢN</h2>
+                <form class="mt-4">
+                    <div class="form-group">
+                        <label class="title" for="txtDN">Tên đăng nhập:</label>
+                        <input class="form" type="text" name="txtDN" id="txtDN" placeholder="txtDN">
+                        <span id="tbTDN" style="color: red;">*</span>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label class="title" for="txtMK">Mật khẩu:</label>
+                        <input class="form" type="password" name="txtMK" id="txtMK" placeholder="txtMK">
+                        <span id="tbMK" style="color: red;">*</span>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label class="title" for="txtXNMK">Nhập lại mật khẩu:</label>
+                        <input class="form" type="password" name="txtXNMK" id="txtXNMK" placeholder="txtXNMK">
+                        <span id="tbXNMK" style="color: red;">*</span>
+                    </div>
+                    <h6 style="font-weight: 600;" class="mt-5" align="center">THÔNG TIN CÁ NHÂN</h6>
+                    <div class="form-group mt-5">
+                        <label class="title" for="txtName"> Họ và tên:</label>
+                        <input class="form" type="text" name="txtName" id="txtName" placeholder="txtName">
+                        <span id="tbHoten" style="color: red;">* bắt buộc</span >
+                    </div>
+                    <div class="form-group mt-3">
+                        <label class="title" for="txtNS">Ngày sinh:</label>
+                        <input style="width: 110px;" class="form" type="date" name="txtNS" id="txtNS">
+                        <span id="tbNgaySinh" style="color: red;"> </span>
+                    </div>
+                    <div class="form-group radio-buttons mt-3">
+                        <label class="title">Giới tính:</label>
+                        <input type="radio" name="gender" id="male" value="M" checked>
+                        <label style="font-size: 19px;" for="male">Nam</label>
+                        <input class="ms-2" type="radio" name="gender" id="female" value="F">
+                        <label style="font-size: 19px;" for="female">Nữ</label>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label class="title" for="txtDC">Địa chỉ:</label>
+                        <input class="form" type="text" name="txtDC" id="txtDC" placeholder="txtDC">
+                        <span id="tbDC" style="color: red;"> </span>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label class="title" for="txtDT">Điện thoại:</label>
+                        <input class="form" type="text" name="txtDT" id="txtDT" placeholder="txtDT">
+                        <span id="tbDT" style="color: red;">phải là số</span>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label class="title" for="txtEmail">Email:</label>
+                        <input class="form" type="email" name="txtEmail" id="txtEmail" placeholder="txtEmail">
+                        <span id="tbEmail" style="color: red;">nhập đúng địa chỉ email</span>
+                    </div>
+                    <div class="form-group submit mt-3" align="center">
+                        <input type="submit" value="Đăng ký" id="submit">
+                        <input type="reset" value="Hủy" id="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+   
+</body>
+</html>

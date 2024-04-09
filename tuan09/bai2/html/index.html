@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.bundle.js"></script>
+    <style>
+        [class*=col-] {
+            padding-left: 0px;
+            padding-right: 0px;
+            border: 1px solid black;
+        }
+        
+        .nav-item {
+            margin-left: 30px;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $("#btnOpen").click(function() {
+                $("#myModal").modal("show");
+            });
+
+            function kiemTraMaTour() {
+                let maTour = $("#txtMa").val();
+                let pattern = /^[A-Z]{3}-[A-Z]{3}-\d{2}-\d{4}$/;
+                if (!pattern.test(maTour)) {
+                    $("#tbMa").html("Mã Tour không hợp lệ (Ví dụ: XXX-XXX-mm-yyyy)");
+                    return false;
+                }
+                $("#tbMa").html("*");
+                return true;
+            }
+
+            $('#txtMa').blur(function() {
+                kiemTraMaTour();
+            });
+
+            // Ngày khởi hành phải sau ngày hiện tại 30 ngày
+            function kiemTraNgayKhoiHanh() {
+                let ngayKhoiHanh = new Date($("#txtNgayKhoiHanh").val()); // Chuyển ngày nhập thành kiểu Date
+                let ngayHienTai = new Date();
+                ngayHienTai.setDate(ngayHienTai.getDate() + 30); // Thêm 30 ngày vào ngày hiện tại
+
+                if (ngayKhoiHanh <= ngayHienTai) { // So sánh ngày khởi hành với ngày hiện tại + 30 ngày
+                    $("#tbNKH").html("Ngày khởi hành phải sau ngày hiện tại ít nhất 30 ngày");
+                    return false;
+                }
+                $("#tbNKH").html("*"); // Nếu hợp lệ, xóa thông báo
+                return true;
+            }
+
+            // Gọi hàm kiểm tra khi ô nhập ngày khởi hành mất focus
+            $('#txtNgayKhoiHanh').blur(function() {
+                kiemTraNgayKhoiHanh();
+            });
+
+
+
+            function kiemTraGiaTour() {
+                let giaTour = parseFloat($("#txtGiaTour").val());
+                if (isNaN(giaTour) || giaTour <= 0) {
+                    $("#tbGiaTour").html("Giá Tour phải là số lớn hơn 0");
+                    return false;
+                }
+                $("#tbGiaTour").html("*");
+                return true;
+            }
+
+            $('#txtGiaTour').blur(function() {
+                kiemTraGiaTour();
+            });
+
+            function kiemTraAnhDaiDien() {
+                let tenTep = $("#txtAnhDaiDien").val();
+                let mauTep = /\.(jpg|jpeg|png|gif)$/i;
+                let ketQua = mauTep.test(tenTep);
+                if (ketQua) {
+                    $("#tbAnhDaiDien").html("Định dạng ảnh hợp lệ");
+                    return true;
+                } else {
+                    $("#tbAnhDaiDien").html("Vui lòng chọn tệp ảnh đúng định dạng (.jpg, .jpeg, .png, .gif)");
+                    return false;
+                }
+            }
+
+            $('#txtAnhDaiDien').blur(function() {
+                kiemTraAnhDaiDien();
+            });
+
+            function themThongTinTour() {
+                let stt = $("table tbody tr").length + 1;
+                let maTour = $("#txtMa").val();
+                let hanhTrinh = $("#txtHt").val();
+                let ngayKhoiHanh = $("#txtNgayKhoiHanh").val();
+                let thoiGian = $("#txttg").val();
+                let giaTour = $("#txtGiaTour").val();
+                let anhDaiDien = $("#txtAnhDaiDien").val();
+
+                let newRow = "<tr><td>" + stt + "</td><td>" + maTour + "</td><td>" + hanhTrinh + "</td><td>" + ngayKhoiHanh + "</td><td>" + thoiGian + "</td><td>" + giaTour + "</td><td>" + anhDaiDien + "</td></tr>";
+                $("table tbody").append(newRow);
+            }
+
+            $("#btnLuu").click(function() {
+                $(".form-text").html("*"); // Xóa các thông báo cũ trước khi kiểm tra lại
+
+                if (!kiemTraMaTour() || !kiemTraNgayKhoiHanh() || !kiemTraGiaTour() || !kiemTraAnhDaiDien()) {
+                    return; // Nếu có lỗi, không thêm thông tin và dừng lại
+                }
+
+                themThongTinTour(); // Thêm thông tin tour vào bảng
+                $("#myModal").modal("hide"); // Đóng modal
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <img src="../images/hinhheader.png" alt="" width="100%" height="100%">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <nav class="navbar-nav">
+                    <ul class="nav ">
+                        <li class="nav-item"><a href="#" class="nav-link">Đăng nhập</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link" id="btnOpen">Mở tour mới</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <p style="font-size: larger;text-align: center;">DANH SACH TOUR- DU LỊCH VIỆT</p>
+                <table class="table table-bordered table-hover  table-striped">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Mã Tour</th>
+                            <th>Hành trình</th>
+                            <th>Ngày khởi hành</th>
+                            <th>Thời gian</th>
+                            <th>Giá tour</th>
+                            <th>Ảnh đại diện</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>HNI-HCM-08-2018</td>
+                            <td>Hà Nội-Hồ Chí Minh 4 ngày 3 đêm</td>
+                            <td>2018-06-08</td>
+                            <td>4 ngày 3 đêm</td>
+                            <td>9500000</td>
+                            <td>HCM.jpg</td>
+                        </tr>
+
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </div>
+        </div>
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Đăng Ký</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form>
+                            <div class="form-group">
+                                <label for="lblMa">Mã tour</label>
+                                <input type="text" class="form-control" id="txtMa" aria-describedby="tbMa" placeholder="XXX-XXX-mm-yyyy">
+                                <small style="color: red;" id="tbMa" class="form-text">*</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="lblHt">Hành Trình</label>
+                                <input type="text" class="form-control" id="txtHt" aria-describedby="tbHT" placeholder="">
+                                <small style="color: red;" id="tbHT" class="form-text">*</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="lblNKH">Ngày khỏi hành</label>
+                                <input type="date" class="form-control" id="txtNgayKhoiHanh" aria-describedby="tbNKH">
+                                <small style="color: red;" id="tbNKH" class="form-text">*</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="lbltg">Thời gian</label>
+                                <input style="color: red;" type="text" class="form-control" id="txttg" aria-describedby="tbtg" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="lblGT">Giá tour</label>
+                                <input type="text" class="form-control" id="txtGiaTour" aria-describedby="tbgt" placeholder="">
+                                <small style="color: red;" id="tbGiaTour" class="form-text">*</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="lblMa2">Ảnh đại diện</label>
+                                <input type="file" class="form-control" id="txtAnhDaiDien" aria-describedby="tbMa2" placeholder="">
+                                <small style="color: red;" id="tbMa2" class="form-text">*</small>
+                            </div>
+                            <div class="d-grid mt-4">
+                                <button type="button" class="btn btn-success" id="btnLuu">Lưu</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container" style="border: 1px solid black">
+        <div class="row" style="height: 250px; background-image: url(../images/website.png); border-bottom: 1px solid black;"></div>
+        <div class="row">
+            <a href="../html/index.html" class="ml-5 pt-3">Trang chủ</a>
+            <a href="#" onclick="$('#submit').modal('show')" class="ml-5 pt-3">Đăng ký</a>
+            <div class="modal fade justify-content-center" id="submit" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 style="padding-left: 300px">THÔNG TIN HỌC VIÊN</h6>
+                            <br/>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="registrationForm">
+                                <div class="row border-bottom m-2 p-2">
+                                    <label for="uname" class="col-md-4 text-right">Họ và tên:</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="userName" id="uname" class="form-control">
+                                        <span id="errName" class="text-danger font-italic">*</span>
+                                    </div>
+                                </div>
+                                <div class="row border-bottom m-2 p-2">
+                                    <label for="gioiTinh" class="col-md-4 text-right">Giới tính:</label>
+                                    <div class="col-md-8">
+                                        <label for="male" style="padding-right: 10px;">
+                                            <input type="radio" name="gioitinh" id="gioitinh" value="Nam">
+                                            Nam
+                                        </label>
+                                        <label for="female">
+                                            <input type="radio" name="gioitinh" id="gioitinh" value="Nữ">
+                                            Nữ
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row border-bottom m-2 p-2">
+                                    <label for="phone" class="col-md-4 text-right">Điện thoại:</label>
+                                    <div class="col-md-8">
+                                        <input type="tel" name="tele" id="phone" class="form-control">
+                                        <span id="errPhone" class="text-danger font-italic">*</span>
+                                    </div>
+                                </div>
+                                <div class="row border-bottom m-2 p-2">
+                                    <label for="date" class="col-md-4 text-right">Ngày sinh:</label>
+                                    <div class="col-md-8">
+                                        <input type="date" name="date" id="date" class="form-control">
+                                        <span id="errDate" class="text-danger font-italic">*</span>
+                                    </div>
+                                </div>
+                                <div class="row border-bottom m-2 p-2">
+                                    <label for="addr" class="col-md-4 text-right">Địa chỉ:</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="address" id="addr" class="form-control">
+                                        <span id="errAdd" class="text-danger font-italic">*</span>
+                                    </div>
+                                </div>
+                                <div class="row border-bottom m-2 p-2">
+                                    <label for="khoa" class="col-md-4 text-right">Bạn muốn tham gia khóa nào?</label>
+                                    <select id="khoa" class="col-md-8 form-control">
+                                        <option value="Khóa 2 tuần">Khóa 2 tuần</option>
+                                        <option value="Khóa 4 tuần">Khóa 4 tuần</option>
+                                        <option value="Khóa 6 tuần">Khóa 6 tuần</option>
+                                    </select>
+                                </div>
+                                <div class="row border-bottom m-2 p-2">
+                                    <label for="hp" class="col-md-4 text-right">Học phí: </label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="Fee" id="hp" class="form-control" disabled>
+                                    </div>
+                                </div>
+                                <div class="row border-bottom m-2 p-2">
+                                    <label for="avt" class="col-md-4 text-right">Ảnh đại diện: </label>
+                                    <div class="col-md-8">
+                                        <input type="file" name="Avatar" id="avt" class="form-control">
+                                        <span id="errAvt" class="text-danger font-italic">*</span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success form-control" onclick="validSubmit()">Lưu</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <h6>LIST OF MEMBERS</h6>
+        </div>
+        <div class="row">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Họ tên</th>
+                        <th>Giới tính</th>
+                        <th>Số điện thoại</th>
+                        <th>Ngày sinh</th>
+                        <th>Địa chỉ</th>
+                        <th>Khóa học</th>
+                        <th>Học phí</th>
+                    </tr>
+                </thead>
+                <tbody id="tbl"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let i = 0;
+
+        function validSubmit() {
+
+            let uName = document.getElementById("uname").value;
+            let namePattern = /^[A-Z][a-z]*(\s[A-Z][a-z]*)+$/;
+            if (!namePattern.test(uName)) {
+                document.getElementById("errName").textContent = "Họ và tên không hợp lệ";
+                document.getElementById("uname").focus();
+                return false;
+            } else {
+                document.getElementById("errName").textContent = "";
+            }
+
+            let telephone = document.getElementById("phone").value;
+            let phonePattern = /^(09|03|07|06|05|04)\d{8,}$/;
+            if (!phonePattern.test(telephone)) {
+                document.getElementById("errPhone").textContent = "Số điện thoại không hợp lệ";
+                document.getElementById("phone").focus();
+                return false;
+            } else {
+                document.getElementById("errPhone").textContent = "";
+            }
+
+            let bdate = document.getElementById("date").value;
+            let today = new Date();
+            let birthDate = new Date(bdate);
+            let age = today.getFullYear() - birthDate.getFullYear();
+
+            if (today.getMonth() < birthDate.getMonth() || (today.getMonth() == birthDate.getMonth() && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+
+            if (!bdate) {
+                document.getElementById("errDate").textContent = "Nhập ngày sinh";
+                document.getElementById("date").focus();
+                return false;
+            } else {
+                if (age < 15 || age > 18) {
+                    document.getElementById("errDate").textContent = "Bạn phải trên 15 và dưới 18 tuổi để đăng ký";
+                    document.getElementById("date").focus();
+                    return false;
+                } else {
+                    document.getElementById("errDate").textContent = "";
+                }
+            }
+
+            let address = document.getElementById("addr").value;
+            if (!address) {
+                document.getElementById("errAdd").textContent = "Bắt buộc nhập địa chỉ";
+                document.getElementById("addr").focus();
+                return false;
+            } else {
+                document.getElementById("errAdd").textContent = "";
+            }
+
+            let avt = document.getElementById("avt").value;
+            if (!avt.endsWith(".jpg") && !avt.endsWith(".png") && !avt.endsWith(".gif")) {
+                document.getElementById("errAvt").textContent = "Chỉ chấp nhận file ảnh định dạng .jpg, .png, .gif";
+                document.getElementById("avt").focus();
+                return false;
+            } else {
+                document.getElementById("errAvt").textContent = "";
+            }
+
+            let gioiTinh = document.getElementById('gioitinh').value;
+
+            let khoaHoc = document.getElementById("khoa").value;
+
+            let hocPhi = document.getElementById("hp").value;
+
+            let row = "<tr><td>" + (++i) + "</td><td>" + uName + "</td><td>" + gioiTinh + "</td><td>" + telephone + "</td><td>" + bdate + "</td><td>" + address + "</td><td>" + khoaHoc + "</td><td>" + hocPhi + "</td></tr>";
+            let mytable = document.getElementById("tbl");
+            let newRow = mytable.insertRow(mytable.rows.length);
+            newRow.innerHTML = row;
+
+            $('#submit').modal('hide');
+            document.getElementById("registrationForm").reset();
+        }
+
+        document.getElementById("khoa").onchange = function() {
+            let selectOpt = document.getElementById("khoa").value;
+
+            let feeInput = document.getElementById("hp");
+
+            switch (selectOpt) {
+                case "Khóa 2 tuần":
+                    feeInput.value = "5.000.000";
+                    break;
+                case "Khóa 4 tuần":
+                    feeInput.value = "8.000.000";
+                    break;
+                case "Khóa 6 tuần":
+                    feeInput.value = "9.000.000";
+                    break;
+                default:
+                    feeInput.value = "";
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>
